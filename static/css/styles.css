@@ -1,0 +1,39 @@
+body {
+    font-family: "Raleway";
+}
+h1 {
+    text-align: center;
+    color: red;
+}
+
+button {
+    width: 5em;
+    margin: auto;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+
+.img_content {
+    text-align: center;
+}
+/* 
+.colors {
+    
+    margin-left: auto;
+    margin-right: auto;
+} */
+
+.box {
+    width: 5em;
+
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
