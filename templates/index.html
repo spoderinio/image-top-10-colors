@@ -26,30 +26,11 @@
     </div>
     <div class="colors">
         <table>
+            {% for color in hex_list %}
             <th>
-                <div class="box" style="background-color: blue;">color</div>
+                <div class="box" style="background-color: {{ color }};">{{color}}</div>
             </th>
-            <th>
-                <div class="box" style="background-color: red;">color2</div>
-            </th>
-            <th>
-                <div class="box" style="background-color: blue;">color2</div>
-            </th>
-            <th>
-                <div class="box" style="background-color: red;">color2</div>
-            </th>
-            <th>
-                <div class="box" style="background-color: blue;">color2</div>
-            </th>
-            <th>
-                <div class="box" style="background-color: red;">color2</div>
-            </th>
-            <th>
-                <div class="box" style="background-color: blue;">color2</div>
-            </th>
-            <th>
-                <div class="box" style="background-color: red;">color2</div>
-            </th>
+            {% endfor %}
 
         </table>
     </div>

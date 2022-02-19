@@ -30,6 +30,8 @@ img {
 
 .box {
     width: 5em;
+    color: white;
+    text-shadow: 1px;
 
 }
 
