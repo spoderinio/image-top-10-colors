@@ -1,7 +1,6 @@
 import numpy as np
-from PIL import Image
 # from sklearn.cluster import KMeans
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, render_template, request
 from werkzeug.utils import secure_filename
 import os
 from colorthief import ColorThief
