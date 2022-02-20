@@ -20,9 +20,13 @@
 <body>
     <div class="img_content">
         <h1>Get the top 10 colors of your image</h1>
-        <button type="submit">Browse</button>
-        <br>
-        <img src="static/raccoon.jpg" alt="your image">
+        <form action="{{ url_for('result') }}" method="POST" enctype="multipart/form-data">
+            <input class="input-file" id="my-file" type="file" name="file">
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+        </form>
+        <img src="{{ image }}" alt="your image">
     </div>
     <div class="colors">
         <table>

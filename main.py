@@ -1,20 +1,20 @@
 import numpy as np
 from PIL import Image
 from sklearn.cluster import KMeans
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect, url_for, request
+from werkzeug.utils import secure_filename
+import os
 
 
 def rgb2hex(r, g, b):
     return "#{:02x}{:02x}{:02x}".format(r, g, b)
 
 
-img = Image.open(
-    "/mnt/m2-storage/Python projects/Image-Colour-Palette-Generator/static/raccoon.jpg")
-
 hex_list = []
 
 
 def get_colors(img):
+    hex_list.clear()
     img_array = np.asarray(img)
     clt = KMeans(n_clusters=10)
     clt.fit(img_array.reshape(-1, 3))
@@ -32,12 +32,24 @@ def get_colors(img):
 
 
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = "/mnt/m2-storage/Python projects/Image-Colour-Palette-Generator/static/images"
 
 
 @app.route('/')
 def home():
+    return render_template("index.html")
+
+
+@app.route("/result", methods=["POST", "GET"])
+def result():
+    file = request.files['file']
+    print(file.filename)
+    filename = secure_filename(file.filename)
+    file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    full_image_path = f"static/images/{file.filename}"
+    img = Image.open(full_image_path)
     get_colors(img)
-    return render_template("index.html", hex_list=hex_list)
+    return render_template("index.html", image=full_image_path, hex_list=hex_list)
 
 
 if __name__ == "__main__":
