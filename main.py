@@ -48,7 +48,7 @@ def get_colors(img):
 
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = "/mnt/m2-storage/Python projects/Image-Colour-Palette-Generator/static/images"
+app.config['UPLOAD_FOLDER'] = "static/images"
 
 
 @app.route('/')
