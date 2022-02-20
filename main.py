@@ -1,4 +1,4 @@
-import numpy as np
+# import numpy as np
 # from sklearn.cluster import KMeans
 from flask import Flask, render_template, request
 from werkzeug.utils import secure_filename
